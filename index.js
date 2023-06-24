@@ -1,5 +1,3 @@
-const Cliente = require('./models/clientes');
+const { leerTodo } = require('./services/productosService');
 
-const clienteUno = new Cliente('Hola','Adios','que tal');
-
-console.log(clienteUno);
+console.log(leerTodo('products'));
