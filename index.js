@@ -5,6 +5,7 @@ const empleadoService = require('./services/empleadoService');
 const productoService = require('./services/productosService');
 const ordenService = require('./services/ordenesService');
 const detalleDeOrdenService = require('./services/detalleDeOrdenService');
+const Cliente = require('./models/clientes');
 
 const app = express();
 
@@ -18,13 +19,16 @@ app.get('/clientes', (req, res) => {
     });
 });
 
-app.get('/formularioInsertarClientes', (req,res) => {
+app.get('/formularioInsertarClientes', (req, res) => {
     res.render('formularioCliente');
 });
 
-app.get('/insertarCliente', (req,res) => {
-    console.log(req.query.txtIdentificador,req.query.txtNombreDeCompania,req.query.txtNombreDeContacto );
-    //Falta la logica de programación
+app.get('/insertarCliente', (req, res) => {
+    const identificador = req.query.txtIdentificador;
+    const nombreCompañia = req.query.txtNombreDeCompania;
+    const nombreContacto = req.query.txtNombreDeContacto;
+    const cliente = new Cliente(identificador, nombreCompañia, nombreContacto);
+    clienteService.insertar(cliente);
     res.render('clientes', {
         titulo: 'Clientes',
         arregloClientes: clienteService.leerTodo('customers')
