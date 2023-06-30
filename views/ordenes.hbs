@@ -11,6 +11,38 @@
 
 <body>
     <h1>{{titulo}}</h1>
+
+    <div class=container>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">IdOrden</th>
+                    <th scope="col">IdCliente</th>
+                    <th scope="col">IdEmpleado </th>
+                    <th scope="col">Fecha Orden</th>
+                    <th scope="col">Fecha Envío</th>
+                    <th scope="col">Fecha Requerida</th>
+                    <th scope="col">Carga</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each arregloOrdenes}}
+                <tr>
+                    <td scope="row">{{this.idOrden}}</td>
+                    <td>{{this.idCliente}}</td>
+                    <td>{{this.idEmpleado}}</td>
+                    <td>{{this.fechaOrden}}</td>
+                    <td>{{this.fechaEnvio}}</td>
+                    <td>{{this.fechaRequerida}}</td>
+                    <td>{{this.carga}}</td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

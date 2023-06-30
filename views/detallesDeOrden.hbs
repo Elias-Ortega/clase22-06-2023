@@ -11,6 +11,33 @@
 
 <body>
     <h1>{{titulo}}</h1>
+
+    <div class=container>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">IdOrden</th>
+                    <th scope="col">IdProducto</th>
+                    <th scope="col">Precio Unitario </th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Descuento</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each arregloDetalleDeOrden}}
+                <tr>
+                    <td scope="row">{{this.idOrden}}</td>
+                    <td>{{this.idProducto}}</td>
+                    <td>{{this.precioUnitario}}</td>
+                    <td>{{this.cantidad}}</td>
+                    <td>{{this.descuento}}</td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

@@ -1,5 +1,9 @@
 const express = require('express');
 const clienteService = require('./services/clientesService');
+const empleadoService = require('./services/empleadoService');
+const productoService = require('./services/productosService');
+const ordenService = require('./services/ordenesService');
+const detalleDeOrdenService = require('./services/detalleDeOrdenService');
 
 const app = express();
 
@@ -14,25 +18,29 @@ app.get('/clientes', (req, res) => {
 
 app.get('/empleados', (req, res) => {
     res.render('empleados', {
-        titulo: 'Empleados'
+        titulo: 'Empleados',
+        arregloEmpleados: empleadoService.leerTodo('employees')
     });
 });
 
-app.get('/detalleDeOrden', (req, res) => {
-    res.render('detalleDeOrden', {
-        titulo: 'Detalle de orden'
+app.get('/detallesDeOrden', (req, res) => {
+    res.render('detallesDeOrden', {
+        titulo: 'Detalles de orden',
+        arregloDetalleDeOrden: detalleDeOrdenService.leerTodo('orderDetails')
     });
 });
 
 app.get('/ordenes', (req, res) => {
     res.render('ordenes', {
-        titulo: 'Órdenes'
+        titulo: 'Órdenes',
+        arregloOrdenes: ordenService.leerTodo('orders')
     });
 });
 
 app.get('/productos', (req, res) => {
     res.render('productos', {
-        titulo: 'Productos'
+        titulo: 'Productos',
+        arregloProductos: productoService.leerTodo('products')
     });
 });
 
