@@ -19,9 +19,9 @@ app.get('/clientes', (req, res) => {
     });
 });
 
-app.get('/formularioInsertarClientes', (req, res) => {
-    res.render('formularioCliente');
-});
+/* app.get('/formularioInsertarClientes', (req, res) => {
+    res.render('formularioCliente');/* en esta segunda forma ya no se llama a este formulario sino directo en la navegacion 
+});*/
 
 app.get('/insertarCliente', (req, res) => {
     const identificador = req.query.txtIdentificador;
