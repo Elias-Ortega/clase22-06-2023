@@ -8,8 +8,9 @@ const detalleDeOrdenService = require('./services/detalleDeOrdenService');
 const Cliente = require('./models/clientes');
 
 const app = express();
+app.use(express.static('public'));//recursos publicos con express
 
-app.set('view engine', 'hbs');
+app.set('view engine', 'hbs');//los recursos dinamicos van en el view y los recursos estaticos en el public
 hbs.registerPartials(__dirname + '/views/partials');
 
 app.get('/clientes', (req, res) => {
@@ -34,6 +35,17 @@ app.get('/insertarCliente', (req, res) => {
         arregloClientes: clienteService.leerTodo('customers')
     });
 });
+
+app.get('/eliminarCliente/:id', (req, res) => {
+    const id = req.params.id;
+    clienteService.eliminar(id);
+    res.render('clientes', {
+        titulo: 'Clientes',
+        arregloClientes: clienteService.leerTodo('customers')
+    });
+
+});
+
 
 app.get('/empleados', (req, res) => {
     res.render('empleados', {
