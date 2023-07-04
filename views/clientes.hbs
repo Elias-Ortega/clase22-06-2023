@@ -20,7 +20,9 @@
                 <tr>
                     <th scope="col">Identificador</th>
                     <th scope="col">Nombre de Compañia</th>
-                    <th scope="col">Nombre de Contacto</th>
+                    <th scope="col">Nombre de Contacto</th>                    
+                    <th scope="col">X</th>
+                     
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +31,7 @@
                     <td scope="row">{{this.clienteId}}</td>
                     <td>{{this.nombreDeCompania}}</td>
                     <td>{{this.nombreDeContacto}}</td>
+                    <th scope="col"><button class="btn btn-primary">Eliminar</button></th>
                 </tr>
                 {{/each}}
             </tbody>
